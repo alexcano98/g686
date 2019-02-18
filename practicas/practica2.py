@@ -43,9 +43,13 @@ def computeCost(X, y, theta):
 def gradientDescent(X, y, theta, alpha, iterations):
     # Initialize some useful values
     m,n = X.shape
-    
+
     # ====================== YOUR CODE HERE ======================
-                                     
+    
+    h = sigmoid(np.dot(X,theta))
+    dentro = (alpha/m) * (np.log(h)-y)
+    theta = theta - np.dot(np.transpose(dentro),X)
+
     # ============================================================
     return theta
 
