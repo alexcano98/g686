@@ -10,7 +10,7 @@ def sigmoid(z):
 # Instructions: Compute the sigmoid of each value of z (z can be a matrix,
 #               vector or scalar). You may find useful numpy.exp and numpy.power.
 
-   
+    g = 1 / (1 + np.exp(z))
 
 # =============================================================
     return g
@@ -29,7 +29,10 @@ def computeCost(X, y, theta):
 #               You should set J to the cost. You may find useful numpy.log
 #               and the sigmoid function you wrote.
 #
-
+    h = sigmoid(np.dot(X, theta))
+    dota = np.dot(np.transpose(-y), np.log(h))
+    dotb = np.dot(np.transpose((1 - y)), np.log(1 - h))
+    J = (dota - dotb) / m
  # =============================================================
 
     return J
