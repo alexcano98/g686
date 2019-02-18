@@ -45,10 +45,11 @@ def gradientDescent(X, y, theta, alpha, iterations):
     m,n = X.shape
 
     # ====================== YOUR CODE HERE ======================
-    
+
     h = sigmoid(np.dot(X,theta))
     dentro = (alpha/m) * (np.log(h)-y)
-    theta = theta - np.dot(np.transpose(dentro),X)
+    dot = np.dot(np.transpose(dentro),X)
+    theta = theta - (alpha/m) * dot
 
     # ============================================================
     return theta
