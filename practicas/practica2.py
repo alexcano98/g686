@@ -10,7 +10,7 @@ def sigmoid(z):
 # Instructions: Compute the sigmoid of each value of z (z can be a matrix,
 #               vector or scalar). You may find useful numpy.exp and numpy.power.
 
-    g = 1 / (1 + np.exp(z))
+    g = 1 / (1 + np.exp(-z))
 
 # =============================================================
     return g
@@ -46,10 +46,10 @@ def gradientDescent(X, y, theta, alpha, iterations):
 
     # ====================== YOUR CODE HERE ======================
 
-    h = sigmoid(np.dot(X,theta))
-    dentro = (alpha/m) * (np.log(h)-y)
-    dot = np.dot(np.transpose(dentro),X)
-    theta = theta - (alpha/m) * dot
+    #h = sigmoid(np.dot(X,theta))
+    #dentro = (alpha/m) * (np.log(h)-y)
+    #dot = np.dot(np.transpose(dentro),X)
+    #theta = theta - (alpha/m) * dot
 
     # ============================================================
     return theta
