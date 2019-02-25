@@ -67,7 +67,7 @@ m,p,X,y = loadData('ex2data.txt')
 
 print('Plotting data with + indicating (y = 1) examples and o indicating (y = 0) examples.\n')
 
-plotData(X, y)
+#plotData(X, y)
 
 input("Program paused. Press ENTER to continue\n")
 

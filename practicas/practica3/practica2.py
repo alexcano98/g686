@@ -1,5 +1,5 @@
 import numpy as np
-import math
+
 
 
 # sigmoid(z) computes the sigmoid of z.
@@ -10,7 +10,7 @@ def sigmoid(z):
 # Instructions: Compute the sigmoid of each value of z (z can be a matrix,
 #               vector or scalar). You may find useful numpy.exp and numpy.power.
 
-    g = 1 / (1 + np.exp(-z))
+   
 
 # =============================================================
     return g
@@ -29,10 +29,7 @@ def computeCost(X, y, theta):
 #               You should set J to the cost. You may find useful numpy.log
 #               and the sigmoid function you wrote.
 #
-    h = sigmoid(np.dot(X, theta))
-    dota = np.dot(np.transpose(-y), np.log(h))
-    dotb = np.dot(np.transpose((1 - y)), np.log(1 - h))
-    J = (dota - dotb) / m
+
  # =============================================================
 
     return J
@@ -43,14 +40,9 @@ def computeCost(X, y, theta):
 def gradientDescent(X, y, theta, alpha, iterations):
     # Initialize some useful values
     m,n = X.shape
-
+    
     # ====================== YOUR CODE HERE ======================
-
-    h = sigmoid(np.dot(X,theta))
-    dentro =(h-y)
-    dot = np.dot(np.transpose(X),dentro)
-    theta = theta - (alpha/m) * dot
-
+                                     
     # ============================================================
     return theta
 
