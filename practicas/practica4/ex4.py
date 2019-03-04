@@ -64,7 +64,7 @@ pl.pcolormesh(xx, yy, Z, cmap=pl.cm.Paired)
 # Plot also the training points
 pl.scatter(X[:, 0], X[:, 1], c=y, cmap=pl.cm.Paired)
 # Change the above line with
-##pl.scatter(X[:, 0], X[:, 1], c=y)
+pl.scatter(X[:, 0], X[:, 1], c=y)
 #if you want to see the points in different colors
 pl.title('SVM classification using '+kernelType+' kernel')
 pl.axis('tight')

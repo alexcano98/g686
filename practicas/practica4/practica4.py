@@ -16,6 +16,8 @@ def linear_kernel(x,l):
 # Instructions: return K(x,l) using a linear kernel
 #               linear: < x, l>
 
+
+
 # =========================================================================      
     return result
 
@@ -60,6 +62,9 @@ def rbf_kernel(x,l, gamma = 3):
 #               rbf: exp(-gamma * |x-l|^2)
 # Hint: use one loop
 
+for i in range (rl):
+    result[,i] = -gamma * (x)
+
 # =========================================================================      
     return result
 
@@ -78,3 +83,6 @@ def datasetParams(X, y):
 
 # =========================================================================      
     return optC,optSigma
+
+
+##MAKE SURE M is CODED SO THAT THEY DON'T HAVE TO BE THE SAME
