@@ -9,66 +9,74 @@ def linear_kernel(x,l):
     # Initialize some useful values
     rx,cx=x.shape
     rl,cl=l.shape
-    # You need to return the following variable correctly 
+    # You need to return the following variable correctly
     result = np.zeros((rx,rl),dtype=float)
+
 
 # ====================== YOUR CODE HERE ======================
 # Instructions: return K(x,l) using a linear kernel
 #               linear: < x, l>
 
+    result = x @ l.T
 
-
-# =========================================================================      
+# =========================================================================
     return result
 
 def polynomial_kernel(x,l, gamma=1,d=2,r=3):
     # Initialize some useful values
     rx,cx=x.shape
     rl,cl=l.shape
-    # You need to return the following variable correctly 
+    # You need to return the following variable correctly
     result = np.zeros((rx,rl),dtype=float)
-    
+
 # ====================== YOUR CODE HERE ======================
 # Instructions: return K(x,l) using a polynomial kernel
 #               polynomial: (gamma * < x, l > + r)^d
 
-# =========================================================================      
+    result = np.power((gamma *x @ l.T + r),d)
+
+# =========================================================================
     return result
 
 def sigmoid_kernel(x,l, gamma=1,r=2):
     # Initialize some useful values
     rx,cx=x.shape
     rl,cl=l.shape
-    # You need to return the following variable correctly 
+    # You need to return the following variable correctly
     result = np.zeros((rx,rl),dtype=float)
-    
+
 # ====================== YOUR CODE HERE ======================
 # Instructions: return K(x,l) using a sigmoid kernel
 #               sigmoid: tanh(gamma * <x,l> + r)
 # Hint: you may find useful numpy.tanh
 
-# =========================================================================      
+    result = np.tanh(gamma * x @ l.T + r)
+
+# =========================================================================
     return result
 
 def rbf_kernel(x,l, gamma = 3):
     # Initialize some useful values
     rx,cx=x.shape
     rl,cl=l.shape
-    # You need to return the following variable correctly 
+    # You need to return the following variable correctly
     result = np.zeros((rx,rl),dtype=float)
-    
+
 # ====================== YOUR CODE HERE ======================
 # Instructions: return K(x,l) using an rbf kernel
 #               rbf: exp(-gamma * |x-l|^2)
 # Hint: use one loop
 
-for i in range (rl):
-    result[,i] = -gamma * (x)
+    for i in range (rl):
+        one = np.ones(cl)
+        result[:,i] = np.exp(-gamma * (x-l[i])**2 @ one)
 
-# =========================================================================      
+
+
+# =========================================================================
     return result
 
-def datasetParams(X, y):   
+def datasetParams(X, y):
     # You need to return the following variables correctly
     # try all values in [0.01, 0.03, 0.1, 0.3, 10, 30]
     optC = 0
@@ -80,9 +88,9 @@ def datasetParams(X, y):
 #               (see sklearn.train_test_split) with predefined values of
 #               parameters.
 #   Hint: you can use svm.score to compute the prediction error
+    tryvals = [0.01, 0.03, 0.1, 0.3, 10, 30]
+    for i in tryvals:
 
-# =========================================================================      
+
+# =========================================================================
     return optC,optSigma
-
-
-##MAKE SURE M is CODED SO THAT THEY DON'T HAVE TO BE THE SAME
